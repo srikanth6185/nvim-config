@@ -41,7 +41,8 @@ return {
     opts = function()
       return require "configs.null-ls"
     end,
-  }, {
+  },
+  {
     "olexsmir/gopher.nvim",
     ft = "go",
     config = function (_, opts)
@@ -50,5 +51,30 @@ return {
     build = function ()
       vim.cmd [[silent! GoInstallDeps]]
     end
-  }
+  },
+  {
+    "dhananjaylatkar/cscope_maps.nvim",
+    dependencies = {
+      "folke/which-key.nvim", -- optional [for whichkey hints]
+      "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
+      "ibhagwan/fzf-lua", -- optional [for picker="fzf-lua"]
+      "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
+    },
+    opts = {
+      -- USE EMPTY FOR DEFAULT OPTIONS
+      -- DEFAULTS ARE LISTED BELOW
+    },
+    config = function ()
+      require("cscope_maps").setup()
+    end
+  },
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+       "nvim-treesitter/nvim-treesitter",
+       "nvim-tree/nvim-web-devicons"
+  },
+}
 }
